@@ -23,8 +23,7 @@
  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-@import Foundation;
-@import UserNotifications;
+#import <Foundation/Foundation.h>
 #import <Cordova/CDV.h>
 #import <Cordova/CDVPlugin.h>
 #import <PushKit/PushKit.h>
@@ -59,7 +58,6 @@
 - (void)unregister:(CDVInvokedUrlCommand*)command;
 - (void)subscribe:(CDVInvokedUrlCommand*)command;
 - (void)unsubscribe:(CDVInvokedUrlCommand*)command;
-- (void)clearNotification:(CDVInvokedUrlCommand*)command;
 
 - (void)didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken;
 - (void)didFailToRegisterForRemoteNotificationsWithError:(NSError *)error;
@@ -70,6 +68,11 @@
 - (void)willSendDataMessageWithID:(NSString *)messageID error:(NSError *)error;
 - (void)didSendDataMessageWithID:(NSString *)messageID;
 - (void)didDeleteMessagesOnServer;
+
+// registrationId conversion
+// Method added to supporto push notification with XCode11
+// @see https://stackoverflow.com/questions/57839723/does-ios-13-has-new-way-of-getting-device-notification-token
+- (NSString *)stringFromDeviceToken:(NSData *)deviceToken;
 
 // VoIP Features
 - (void)pushRegistry:(PKPushRegistry *)registry didUpdatePushCredentials:(PKPushCredentials *)credentials forType:(NSString *)type;
