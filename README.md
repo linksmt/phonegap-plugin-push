@@ -9,6 +9,9 @@ number of breaking API changes from version 1.x, mostly the move from GCM to
 FCM. If you are using version 1.x please reference the docs in the
 [v1.x branch](https://github.com/phonegap/phonegap-plugin-push/tree/v1.x).
 
+## XCode11
+This repo was forked to implement a fix for XCode11 development. As described in this issue [Does ios 13 ha new way of getting device notification token](https://stackoverflow.com/questions/57839723/does-ios-13-has-new-way-of-getting-device-notification-token), we introduced a method to decode registration token correctily. See changes on Plugin.m and Plugin.h files.
+
 # What is this?
 
 This plugin offers support to receive and handle native push notifications with
